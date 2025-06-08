@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Tuning Insights</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/explore.css' %}">
+</head>
+<body>
+    
+    <section class="insights">
+        <h1>Car Tuning Insights</h1>
+        <div class="faq">
+            <div class="question">What is car tuning? <span>+</span></div>
+            <div class="answer">Car tuning is the process of modifying a vehicle to improve its performance, efficiency, or aesthetics. It can involve engine upgrades, ECU remapping, suspension adjustments, and more. Tuning allows drivers to optimize their cars for better acceleration, fuel efficiency, or handling, depending on their needs. Some tuning focuses on visual enhancements, such as body kits and interior modifications, while others prioritize mechanical improvements for better speed and power.</div>
+        </div>
+        <div class="faq">
+            <div class="question">What are the different levels of tuning? <span>+</span></div>
+            <div class="answer">
+                <ul>
+                    <li><strong>Stage 1:</strong> Basic ECU remap and minor upgrades (safe for daily driving).</li>
+                    <li><strong>Stage 2:</strong> Performance parts like intercoolers, exhausts, and fuel system upgrades.</li>
+                    <li><strong>Stage 3:</strong> Heavy modifications, including turbo/supercharger upgrades.</li>
+                    <li><strong>Stage 4+:</strong> Full race-spec tuning, not suitable for daily use.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">Why is tuning important? <span>+</span></div>
+            <div class="answer">Tuning is essential for maximizing a car’s potential. It enhances performance, allowing for better horsepower and torque output. Proper tuning also improves fuel efficiency by optimizing engine parameters. For car enthusiasts, tuning allows for customization to match their driving style, whether for daily commuting, racing, or off-roading. Additionally, tuning can extend a vehicle’s lifespan by ensuring all components operate efficiently and effectively.</div>
+        </div>
+        <div class="faq">
+            <div class="question">How do I choose the best tuning service? <span>+</span></div>
+            <div class="answer">
+                <ul>
+                    <li>✅ The tuner’s experience and reputation.</li>
+                    <li>✅ The type of tuning they offer (custom vs. pre-set).</li>
+                    <li>✅ The use of high-quality parts.</li>
+                    <li>✅ Customer reviews and warranty options.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="home-button-container">
+        <a href="{% url 'home' %}" class="home-button">Back to Home</a>
+    </div>
+
+    <script src="{% static 'js/explore.js' %}"></script>
+</body>
+</html>

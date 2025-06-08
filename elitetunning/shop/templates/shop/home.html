@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Auto Tuning</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ELITE TUNING</div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'shop' %}">Shop</a>
+                <a href="{% url 'book' %}">Book</a>
+                <a href="{% url 'cart' %}">My Cart (<span id="cart-count">{{cartItems}}</span>)</a>
+            
+                <div class="nav-right">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'account' %}" class="hello-link">Hello, {{request.user}}</a>
+                        <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="logout-link">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+        </nav>
+
+        <script type="text/javascript">
+            var user = '{{request.user}}'
+        </script>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Auto Tuning Services</h1>
+            <p>Transform your vehicle into a masterpiece</p>
+            <a href="{% url 'book' %}" class="cta-button">Book Consultation</a>
+        </div>
+    </section>
+
+    <section class="services" id="book">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Custom Exhaust System</h3>
+                <p>Enhance performance, improve sound, and optimize airflow</p>
+            </div>
+            <div class="service-card">
+                <h3>Engine Tunning</h3>
+                <p>Performance optimization and ECU remapping</p>
+            </div>
+            <div class="service-card">
+                <h3>Part Insulation</h3>
+                <p>Shield surrounding components from excessive heat, improving safety, performance, and durability.</p>
+            </div>
+        </div>
+    </section>
+
+        <!-- Replace the current explore section in home.html with this: -->
+        <section class="explore-section" id="explore">
+            <div class="explore-content">
+                <!-- Use a placeholder image or load from static -->
+                <img src="{% static 'images/explore.jpeg' %}" alt="Car Tuning" class="explore-image">
+                <div class="explore-text">
+                    <h2>Discover top-tier tuning and modification services for your vehicle</h2>
+                    <a href="{% url 'explore' %}" class="explore-button">Explore Car Tuning Insights</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Sponsorships</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>My Account</h3>
+                    <ul>
+                        <li><a href="{% url 'account' %}">My Profile</a></li>
+                        <li><a href="#">Order History</a></li>
+                        <li><a href="#">Book History</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Payment Methods</a></li>
+                        <li><a href="#">Returns & Warranty</a></li>
+                        <li><a href="#">Product Warranty</a></li>
+                        <li><a href="#">Site Security</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Custom Exhaust System</a></li>
+                        <li><a href="#">Engine Tunning</a></li>
+                        <li><a href="#">Part Insulation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Elite Auto Tuning. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+</body>
+</html>
+

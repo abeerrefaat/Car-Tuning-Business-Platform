@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book {{ service.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/book_service.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ELITE TUNING</div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'shop' %}">Shop</a>
+                <a href="{% url 'book' %}">Book</a>
+                <a href="{% url 'cart' %}">My Cart (<span id="cart-count">{{cartItems}}</span>)</a>
+            
+                <div class="nav-right">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'account' %}" class="hello-link">Hello, {{request.user}}</a>
+                        <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="logout-link">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        <script type="text/javascript">
+            var user = '{{request.user}}'
+        </script>
+    </header>
+    <main>
+
+        <div class="service-details">
+            <h1>{{ service.name }}</h1>
+            <p><strong>Description:</strong> {{ service.description }}</p>
+            <p><strong>Duration:</strong> {{ service.duration }}</p>
+            <p><strong>Price:</strong> ${{ service.price }}</p>
+            <p><strong>Availability:</strong> {{ service.status }}</p>
+            
+            <a href="{% url 'bookcheckout' service.id %}" class="proceed-to-book">
+                <button type="submit">Book Now</button>
+            </a>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Sponsorships</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>My Account</h3>
+                <ul>
+                    <li><a href="{% url 'account' %}">My Profile</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Book History</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Returns & Warranty</a></li>
+                    <li><a href="#">Product Warranty</a></li>
+                    <li><a href="#">Site Security</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Custom Exhaust System</a></li>
+                    <li><a href="#">Engine Tuning</a></li>
+                    <li><a href="#">Part Insulation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Elite Auto Tuning. All rights reserved.</p>
+        </div>
+    </footer>
+</div> <!-- Wrapper ends -->
+
+</body>
+</html>
+    
+
+
+</body>
+</html>

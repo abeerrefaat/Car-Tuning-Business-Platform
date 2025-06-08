@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Success - Elite Tuning</title>
+    <link rel="stylesheet" href="{% static 'css/booksuccess.css' %}" />
+  </head>
+  <body>
+    <!-- Header (Same as your existing site) -->
+    <header>
+      <nav>
+        <ul></ul>
+      </nav>
+    </header>
+
+    <!-- Success Message Section -->
+    <section class="success-container">
+      <h2>✅ Appointment Booked Successfully!</h2>
+      <p>Thank you for choosing Elite Tunning. Your appointment has been scheduled.</p>
+      <a href="{% url 'home' %}" class="btn">Return to Home</a>
+      <a href="{% url 'book' %}" class="btn">Return To Services</a>
+    </section>
+
+    <!-- Footer (Same as your existing site) -->
+    <footer>
+      <p>&copy; 2025 Elite Tuning. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

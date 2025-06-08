@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book History | Elite Tuning</title>
+    <link rel="stylesheet" href="{% static 'css/bookhistory.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home' %}">ELITE TUNING</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">HOME</a></li>
+                    <li><a href="{% url 'shop' %}">SHOP</a></li>
+                    <li><a href="{% url 'book' %}">BOOK</a></li>
+                    <li><a href="{% url 'cart' %}">MY CART ({{ cartItems }})</a></li>
+                    <li class="user-menu">
+                        <a href="{% url 'account' %}">HELLO, {{ request.user.username|upper }} </a>
+                        <a href="{% url 'logout' %}" class="logout-link">LOGOUT</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="account-container">
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="{% url 'account' %}">Profile</a></li>
+                        <li><a href="{% url 'orderhistory' %}">Order History</a></li>
+                        <li><a href="{% url 'bookhistory' %}" class="active">Book History</a></li>
+                    </ul>
+                </div>
+                <div class="account-details">
+                    <h1>Your Booked Services</h1>
+                    
+                    {% if bookings %}
+                        <div class="bookings-list">
+                            {% for booking in bookings %}
+                            <div class="booking-card">
+                                <div class="booking-header">
+                                    <div>
+                                        <strong>Booking #{{ booking.id }}</strong>
+                                        <span class="booking-date">Scheduled for {{ booking.scheduled_date|date:"F j, Y" }} at {{ booking.scheduled_date|time }}</span>
+                                    </div>
+                                    <div class="booking-status">{{ booking.status|title }}</div>
+                                </div>
+                                
+                                <div class="booking-details">
+                                    <div class="detail-row">
+                                        <span class="detail-label">Service:</span>
+                                        <span class="detail-value">{{ booking.service }}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-label">Notes:</span>
+                                        <span class="detail-value">{{ booking.notes|default:"No additional notes" }}</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="booking-footer">
+                                   
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="no-bookings">
+                            <p>You haven't booked any services yet.</p>
+                            <a href="{% url 'book' %}" class="book-btn">Book a Service</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Sponsorships</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>My Account</h3>
+                <ul>
+                    <li><a href="{% url 'account' %}">My Profile</a></li>
+                    <li><a href="{% url 'orderhistory' %}">Order History</a></li>
+                    <li><a href="{% url 'bookhistory' %}">Book History</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Returns & Warranty</a></li>
+                    <li><a href="#">Product Warranty</a></li>
+                    <li><a href="#">Site Security</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="{% url 'book' %}">Custom Exhaust System</a></li>
+                    <li><a href="{% url 'book' %}">Engine Tuning</a></li>
+                    <li><a href="{% url 'book' %}">Part Insulation</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Elite Auto Tuning. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>    

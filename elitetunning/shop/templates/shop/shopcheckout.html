@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Elite Tuning</title>
+    <link rel="stylesheet" href="{% static 'css/shopcheckout.css' %}">
+
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        console.log("User from template:", user);
+    </script>
+</head>
+<body>
+    <header>
+        <h1 class="logo">ELITE TUNING</h1>
+
+    </header>
+
+    <div class="checkout-container">
+        <!-- Checkout Form Section -->
+        <div class="checkout-form" id="checkoutform">
+            <h2>Checkout</h2>
+
+           
+            <h2>Shipping Information:</h2>
+            
+            <div class="form-group">
+                <label>Address:</label>
+                <input type="text" class="input-field" id="address" required>
+            </div>
+            
+            <div class="form-group">
+                <label>City:</label>
+                <input type="text" class="input-field" id="city" required>
+            </div>
+            
+            <div class="form-group">
+                <label>State:</label>
+                <input type="text" class="input-field" id="state" required>
+            </div>
+
+            <div class="box-element hidden" id="payment-info">
+                <small>Paypal Options</small>
+                <button id="make-payment">Pay with PayPal</button>
+            </div>
+            
+            <div class="button-group">
+                <button class="continue-btn" id="continue-btn">Submit</button>
+                <a href="{% url 'cart' %}"  class="back-link" id="back-link">Back to Cart</a>
+            </div>
+
+
+        </div>
+
+
+        <!-- Order Summary Section -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            {% for item in items %}
+            <div id="order-items" class="order-items">
+                <div class="order-item">
+                    <img src="{{item.product.imageURL}}" alt="{{item.product.name}}" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">{{item.product.name}}</div>
+                        <div class="item-price">${{item.product.price}}</div>
+                        <div class="item-quantity">Quantity: {{item.quantity}}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <div class="order-total">
+                <p><strong>Items:</strong> <span id="items-count">{{order.get_cart_items}}</span></p>
+                <p><strong>Total:</strong> <span id="total-price">${{order.get_cart_total}}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Elite Tuning. All Rights Reserved.</p>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'js/shopcheckout.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Checkout - Elite Tuning</title>
+    <link rel="stylesheet" href="{% static 'css/bookcheckout.css' %}">
+    
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        console.log("User from template:", user);
+    </script>
+</head>
+<body>
+    <header>
+        <h1 class="logo">ELITE TUNING</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="checkout-container">
+            <!-- Checkout Form Section -->
+            <div class="checkout-form">
+                <h2>Booking Details</h2>
+                <form id="booking-form">
+                    {% csrf_token %}
+                    <input type="hidden" id="service_id" value="{{ service.id }}">
+                    <input type="hidden" id="service_price" value="{{ service.price }}">
+                    
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <input type="date" id="booking_date" class="input-field" required min="{{ today|date:'Y-m-d' }}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Time:</label>
+                        <select id="booking_time" class="input-field" required>
+                            <option value="">Select a time slot</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="17:00">5:00 PM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Special Requests:</label>
+                        <textarea id="notes" class="input-field"></textarea>
+                    </div>
+
+                    <div class="box-element" id="payment-info">
+                        <small>Payment Options</small>
+                        <button id="make-payment">Pay with PayPal</button>
+                    </div>
+                    
+                    <div class="button-group">
+                        <a href="{% url 'book' %}" class="back-link" id="back-link">Back to Services</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Service Summary Section -->
+            <div class="service-summary">
+                <h2>Service Summary</h2>
+                <div class="service-booking">
+                    <div class="service-details">
+                        <h3>{{ service.name }}</h3>
+                        <p><strong>Duration:</strong> {{ service.duration }}</p>
+                        <p><strong>Price:</strong> ${{ service.price }}</p>
+                        <p><strong>Status:</strong> {{ service.status }}</p>
+                    </div>
+                </div>
+
+                <div class="order-total">
+                    <p><strong>Total:</strong> ${{ service.price }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Elite Tuning. All Rights Reserved.</p>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'js/bookcheckout.js' %}"></script>
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Elite Tuning</title>
+    <link rel="stylesheet" href="{% static 'css/bookcheckout.css' %}">
+</head>
+<body>
+    <header>
+        <h1 class="logo">ELITE TUNING</h1>
+
+        <script type="text/javascript">
+            var user = '{{request.user}}'
+        </script>
+    </header>
+
+<div class="main-content">
+        <div class="checkout-container">
+         <div class="checkout-form">
+        <h2>Booking Details</h2>
+        <form method="POST" action="{% url 'process_booking' service.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="date" name="booking_date" class="input-field" required min="{{ today|date:'Y-m-d' }}">
+            </div>
+            
+            <div class="form-group">
+                <label>Time:</label>
+                <input type="time" name="booking_time" class="input-field" required>
+                
+            </div>
+            
+            <div class="form-group">
+                <label>Special Requests:</label>
+                <textarea name="notes" class="input-field"></textarea>
+            </div>
+
+            <div class="box-element hidden" id="payment-info">
+                <small>Paypal Options</small>
+                <button id="make-payment">Pay with PayPal</button>
+            </div>
+            
+            <div class="button-group">
+                <button type="submit" class="continue-btn">Confirm Booking</button>
+                <a href="{% url 'book' %}" class="back-link">Back to Services</a>
+            </div>
+        </form>
+    </div>
+
+        <div class="service-summary">
+            <div class="service-summary">
+                <h2>Service Summary</h2>
+                <div class="service-booking">
+                    <div class="service-details">
+                        <h3>{{ service.name }}</h3>
+                        <p><strong>Duration:</strong> {{ service.duration }}</p>
+                        <p><strong>Price:</strong> ${{ service.price }}</p>
+                        <p><strong>Status:</strong> {{ service.status }}</p>
+                    </div>
+                </div>
+
+            <div class="order-total">
+                <p><strong>Total:</strong> ${{ service.price }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer>
+    <p>&copy; 2025 Elite Tuning. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>-->

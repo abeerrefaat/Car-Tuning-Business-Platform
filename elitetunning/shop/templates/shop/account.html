@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | Elite Tuning</title>
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home' %}">ELITE TUNING</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">HOME</a></li>
+                    <li><a href="{% url 'shop' %}">SHOP</a></li>
+                    <li><a href="{% url 'book' %}">BOOK</a></li>
+                    <li><a href="{% url 'cart' %}">MY CART ({{ cartItems }})</a></li>
+                    <li class="user-menu">
+                        <a href="{% url 'account' %}">HELLO, {{ request.user.username|upper }} </a>
+                        <a href="{% url 'logout' %}" class="logout-link">LOGOUT</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="account-container">
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="{% url 'account' %}" class="active">Profile</a></li>
+                        <li><a href="{% url 'orderhistory' %}">Order History</a></li>
+                        <li><a href="{% url 'bookhistory' %}">Book History</a></li>
+                    </ul>
+                </div>
+                <div class="account-details">
+                    <div class="profile-card">
+                        <h1>{{ request.user.customer.name }}</h1>
+                        <div class="profile-info">
+                            <p><strong>Email:</strong> {{ request.user.email }}</p>
+                            <p><strong>Phone:</strong> {{ request.user.customer.phone|default:"+1234567890" }}</p>
+                            <p><strong>Address:</strong> 
+                                {% if shipping_address %}
+                                    {{ shipping_address.address }}, {{ shipping_address.city }}, {{ shipping_address.state }}
+                                {% else %}
+                                    No address on file
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Sponsorships</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>My Account</h3>
+                <ul>
+                    <li><a href="{% url 'account' %}">My Profile</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Book History</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Returns & Warranty</a></li>
+                    <li><a href="#">Product Warranty</a></li>
+                    <li><a href="#">Site Security</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Custom Exhaust System</a></li>
+                    <li><a href="#">Engine Tunning</a></li>
+                    <li><a href="#">Part Insulation</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Elite Auto Tuning. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
