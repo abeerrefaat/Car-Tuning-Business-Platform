@@ -1,0 +1,352 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header styles */
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.logo a {
+    color: #ff5500;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff5500;
+}
+
+.logout-link {
+    background-color: #ff5500;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+    margin-left: 15px;
+}
+
+.logout-link:hover {
+    background-color: #cc4400;
+}
+
+/* Main content */
+main {
+    padding: 40px 0;
+}
+
+.account-container {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.sidebar ul li a:hover, 
+.sidebar ul li a.active {
+    background-color: #ff5500;
+    color: #fff;
+}
+
+/* Account details */
+.account-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.account-details h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Bookings styles */
+.bookings-list {
+    margin-top: 20px;
+}
+
+.booking-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.booking-date {
+    color: #777;
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+.booking-status {
+    background-color: #ff5500;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.booking-details {
+    margin: 15px 0;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-weight: bold;
+    width: 100px;
+    color: #555;
+}
+
+.detail-value {
+    flex: 1;
+}
+
+.booking-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+
+.reschedule-btn, 
+.cancel-btn {
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.reschedule-btn {
+    background-color: #ff5500;
+    color: white;
+    margin-right: 10px;
+}
+
+.reschedule-btn:hover {
+    background-color: #cc4400;
+}
+
+.cancel-btn {
+    background-color: #333;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #555;
+}
+
+.no-bookings {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px dashed #ddd;
+}
+
+.no-bookings p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.book-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #ff5500;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.book-btn:hover {
+    background-color: #cc4400;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .account-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    .booking-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .booking-status {
+        margin-top: 10px;
+    }
+
+    .booking-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .booking-total {
+        margin-bottom: 10px;
+    }
+}
+
+/* Footer styles */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px 20px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-column h3 {
+    color: #ff5500;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ff5500;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    color: #888;
+    font-size: 14px;
+    border-top: 1px solid #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}

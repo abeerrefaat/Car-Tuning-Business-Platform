@@ -1,0 +1,309 @@
+/* Book Checkout Page Styles - Elite Tuning Color Scheme */
+:root {
+    --primary-orange: #ff5500;
+    --primary-orange-dark: #e64a00;
+    --bg-dark: #1a1a1a;
+    --bg-darker: #000000;
+    --text-light: #ffffff;
+    --border-dark: #333;
+    --border-light: #444;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--bg-darker);
+    padding: 20px 0;
+    border-bottom: 2px solid var(--primary-orange);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--primary-orange);
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.checkout-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+}
+
+.checkout-form, .order-summary {
+    flex: 1;
+    background-color: var(--bg-darker);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.checkout-form h2, .order-summary h2 {
+    color: var(--primary-orange);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+
+.input-field {
+    width: 95%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    color: var(--text-light);
+    font-size: 1em;
+}
+
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.continue-btn {
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+    transition: background-color 0.3s;
+}
+
+.continue-btn:hover {
+    background-color: var(--primary-orange-dark);
+}
+
+.back-link {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    flex: 1;
+    transition: all 0.3s;
+}
+
+.back-link:hover {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange);
+}
+
+/* Service Booking Specific Styles */
+.service-booking {
+    margin-bottom: 25px;
+}
+
+.service-details, .booking-info {
+    background-color: var(--border-dark);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--primary-orange);
+}
+
+.service-details h3, .booking-info h3 {
+    color: var(--primary-orange);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.service-details p, .booking-info p {
+    margin: 8px 0;
+    display: flex;
+}
+
+.service-details p strong, .booking-info p strong {
+    min-width: 100px;
+    display: inline-block;
+}
+
+.order-total {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--border-dark);
+    border-radius: 8px;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.order-total p {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.order-total span {
+    color: var(--primary-orange);
+    font-weight: bold;
+}
+
+
+.main-content {
+    flex: 1;
+    padding-bottom: 20px; /* Add some space above the footer */
+}
+
+footer {
+    background-color: var(--bg-darker);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    .checkout-form, .order-summary {
+        padding: 20px;
+    }
+    
+    .service-details p, .booking-info p {
+        flex-direction: column;
+    }
+    
+    .service-details p strong, .booking-info p strong {
+        margin-bottom: 5px;
+    }
+}
+
+/* PayPal Button Styling */
+#payment-info {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: var(--border-dark);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-orange);
+}
+
+#payment-info small {
+    display: block;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+#make-payment {
+    background-color: #0070ba; /* PayPal blue */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#make-payment:hover {
+    background-color: #005ea6; /* Darker PayPal blue on hover */
+}
+
+#make-payment::before {
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    opacity: 0.8;
+}
+
+/* Remove .hidden class styling if it's being used to hide the payment section initially */
+.hidden {
+    display: none;
+}
+
+/* Make sure the payment box aligns with other elements */
+.box-element {
+    width: 100%;
+    box-sizing: border-box;
+}
+/* Time Selection Dropdown Styling */
+select.input-field {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px;
+}
+
+select.input-field option {
+    background-color: var(--bg-darker);
+    color: var(--text-light);
+}
+
+/* Style for disabled/invalid time slots */
+select.input-field option:disabled {
+    color: #666;
+    font-style: italic;
+}
+
+/* Time slot highlight on hover */
+select.input-field option:hover {
+    background-color: var(--primary-orange);
+    color: white;
+}
+
+/* Time selection indicator */
+.time-availability {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+
+/* Special styling for the PayPal button when form is incomplete */
+#make-payment[disabled] {
+    background-color: #7a7a7a;
+    cursor: not-allowed;
+    opacity: 0.6;
+}

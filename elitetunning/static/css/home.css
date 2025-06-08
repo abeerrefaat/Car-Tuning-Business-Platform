@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+header {
+    background-color: #000000;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 2em;
+    color: #ff5500;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff5500;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1950');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #ff5500;
+    color: #ffffff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #cc4400;
+}
+
+.services {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Explore Section Animation */
+.explore-section {
+    padding: 80px 20px;
+    background-color: #2a2a2a;
+    margin: 50px 0;
+}
+
+.explore-content {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.explore-image {
+    width: 25%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s ease-out;
+}
+
+.explore-text {
+    width: 50%;
+}
+
+/* Modify the explore-text section */
+.explore-text h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out 0.2s;
+    margin-bottom: 30px; /* Added space between text and button */
+    font-weight: normal; /* Makes text normal weight (non-bold) */
+    text-transform: none; /* Removes uppercase if set elsewhere */
+    text-align: left;
+}
+
+/* Update the explore button */
+.explore-button {
+    background-color: #ff5500;
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    margin-top: 0; /* Changed from 20px to 0 */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: background-color 0.3s;
+    text-decoration: none; /* Ensures no underline */
+    display: inline-block;
+    cursor: pointer; /* Non-clickable appearance */
+}
+
+.explore-button:hover {
+    background-color: #cc4400;
+}
+
+
+/* Visible state */
+.explore-section.visible .explore-image,
+.explore-section.visible .explore-text h2,
+.explore-section.visible .explore-button {
+    opacity: 1;
+    transform: translate(0);
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 0 20px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-column h3 {
+    color: #ff5500;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ff5500;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 40px;
+    color: #888;
+    font-size: 14px;
+    border-top: 1px solid #333;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+/* New for right side nav */
+.nav-right {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    
+}
+
+.hello-link {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.hello-link:hover {
+    color: #ff5500;
+}
+
+.logout-link {
+    background-color: #ff5500;
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.logout-link:hover {
+    background-color: #cc4400;
+}

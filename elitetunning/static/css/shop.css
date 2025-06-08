@@ -1,0 +1,220 @@
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #000000;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 2em;
+    color: #ff5500;
+    font-weight: bold;
+    
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;    
+    justify-content: center; 
+}
+
+.nav-right {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-shrink: 0; /* Prevent shrinking */
+    
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff5500;
+}
+
+.shop {
+    margin-top: 100px;
+    padding: 50px;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+button {
+    background-color: #ff5500;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #cc4400;
+}
+
+.success-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff5500;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    z-index: 1000;
+    animation: slideIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes slideIn {
+    from { top: -50px; opacity: 0; }
+    to { top: 20px; opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Add this to ALL your CSS files (homestyles.css, shopstyles.css, Book.css) */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px 20px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-column h3 {
+    color: #ff5500;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ff5500;
+}
+
+
+.company-name {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    color: #888;
+    font-size: 14px;
+    border-top: 1px solid #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+
+
+.hello-link {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.hello-link:hover {
+    color: #ff5500;
+}
+
+.logout-link {
+    background-color: #ff5500;
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.logout-link:hover {
+    background-color: #cc4400;
+}
+
